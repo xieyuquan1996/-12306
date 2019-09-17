@@ -1,0 +1,34 @@
+@media (-webkit-min-device-pixel-ratio: 1.5),(min-device-aspect-ratio: 1.5)
+  .border-1px
+    &::after
+      -webkit-transform : scaleY(0.7)
+      transform : scaleY(0.7)
+  .border-dashed-1px
+    &::after
+      -webkit-transform : scaleY(0.7)
+      transform : scaleY(0.7)
+
+@media (-webkit-min-device-pixel-ratio: 2),(min-device-aspect-ratio: 2)
+  .border-1px
+    &::after
+      -webkit-transform : scaleY(0.5)
+      transform : scaleY(0.5)
+  .border-dashed-1px
+    &::after
+      -webkit-transform : scaleY(0.5)
+      transform : scaleY(0.5)
+
+body, html
+  font-weight 200px
+  font-family Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif
+
+.clearfix
+  display: inline-block
+  &.after
+    display: block
+    content: '.'
+    height: 0
+    line-height: 0
+    clear: both
+    visibility: hidden
+

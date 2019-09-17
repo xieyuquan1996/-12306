@@ -1,0 +1,78 @@
+@import "../../common/stylus/mixin.styl"
+.index
+  width: 100%
+  background rgb(255, 255, 255)
+  font-size 0
+  .ticker
+    margin: 50px 20px
+    padding-left 20px
+    padding-right: 20px
+    padding-bottom: 10px
+    border-style: solid
+    border-radius 3px
+    box-shadow: 0 0 6px rgb(232, 232, 232)
+    .place
+      display flex
+      height: 20px
+      line-height: 20px
+      padding 20px 0
+      text-align center
+      border-1px(rgba(7, 17, 27, 0.1))
+      .icon
+        display: inline-block
+        height 100%
+        width 10%
+        font-size 16px
+      .station
+        display: inline-block
+        width: 45%
+        font-weight: 600
+        font-size: 20px
+    .date-wrapper
+      display flex
+      padding 15px 0
+      font-size 0
+      height: 20px
+      line-height: 20px
+      justify-items center
+      border-1px(rgba(7, 17, 27, 0.1))
+      .date-title
+        display: inline-block
+        margin-left: 15px
+        font-size 12px
+        color rgb(153, 153, 153)
+      .date-month
+        display: inline-block
+        margin-left: 20px
+        font-size 20px
+        font-weight: 500
+      .date-week
+        display: inline-block
+        margin-left: 15px
+        font-size: 12px
+        color rgb(102, 102, 102)
+    .speedRailway
+      position: relative;
+      display: block
+      height 30px
+      .title
+        display: inline-block
+        line-height 30px
+        margin-left: 15px
+        color rgb(153, 153, 153)
+        font-size 12px
+      .icon
+        position: absolute;
+        right: 15px;
+        display: inline-block
+        font-size 30px
+    .searchTicker
+      display flex
+      justify-content center
+      width: 100%
+      height: 40px
+      line-height 40px
+      font-size 15px
+      border-radius 5px
+      color: rgb(255, 255, 255)
+      background rgb(59, 153, 252)

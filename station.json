@@ -1,0 +1,88 @@
+{
+  "ticker":[
+    {
+      "tripNum": "D123",
+      "startStation": "深圳",
+      "startStationStatus": "过",
+      "startStationTime": "06:10",
+      "endStation": "杭州",
+      "endStationStatus": "过",
+      "endStationTime": "15:10",
+      "travelTime": "9小时0分",
+      "ticket": [
+        {
+          "ticketLevel": "一等座",
+          "ticketNum": "2张",
+          "ticketPrice": 600
+        },
+        {
+          "ticketLevel": "二等座",
+          "ticketNum": "100张",
+          "ticketPrice": 300
+        },
+        {
+          "ticketLevel": "无座",
+          "ticketNum": "有",
+          "ticketPrice": 300
+
+        }
+      ]
+    },
+    {
+      "tripNum": "D124",
+      "startStation": "深圳北",
+      "startStationStatus": "始",
+      "startStationTime": "06:50",
+      "endStation": "杭州",
+      "endStationStatus": "过",
+      "endStationTime": "15:40",
+      "travelTime": "8小时50分",
+      "ticket": [
+        {
+          "ticketLevel": "一等座",
+          "ticketNum": "2张",
+          "ticketPrice": 600
+        },
+        {
+          "ticketLevel": "二等座",
+          "ticketNum": "100张",
+          "ticketPrice": 300
+        },
+        {
+          "ticketLevel": "无座",
+          "ticketNum": "有",
+          "ticketPrice": 300
+
+        }
+      ]
+    },
+    {
+      "tripNum": "D125",
+      "startStation": "深圳",
+      "startStationStatus": "过",
+      "startStationTime": "07:30",
+      "endStation": "杭州",
+      "endStationStatus": "终",
+      "endStationTime": "16:40",
+      "travelTime": "9小时10分",
+      "ticket": [
+        {
+          "ticketLevel": "一等座",
+          "ticketNum": "2张",
+          "ticketPrice": 600
+        },
+        {
+          "ticketLevel": "二等座",
+          "ticketNum": "100张",
+          "ticketPrice": 300
+        },
+        {
+          "ticketLevel": "无座",
+          "ticketNum": "有",
+          "ticketPrice": 300
+
+        }
+      ]
+    }
+  ]
+}
