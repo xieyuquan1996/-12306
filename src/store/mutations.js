@@ -54,5 +54,8 @@ export default {
     for (let i = 0; i < state.ticket.ticket.length; i++) {
       state.ticket.ticket[i].price = val[i]
     }
+  },
+  setPersonLists (state, val) {
+    state.personLists = val
   }
 }

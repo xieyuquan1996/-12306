@@ -1,0 +1,68 @@
+@import "../../common/stylus/mixin.styl"
+.passenger
+  width: 100%
+  height: 100%
+  .head
+    position: relative
+    width: 100%
+    background rgb(59, 153, 252)
+    color rgb(255, 255, 255)
+    .icon-left,.text,.icon-right
+      height 40px
+      line-height 40px
+      font-size 17px
+    .icon-left
+      position: absolute;
+      left 5px
+    .icon-right
+      position: absolute;
+      right 10px
+      font-size 13px
+    .text
+      display inline-block
+      width 100%
+      text-align center
+      font-weight 500
+  .content
+    position: absolute
+    top: 40px
+    bottom: 0
+    width 100%
+    background rgb(240, 240, 240)
+    .add-person
+      display: flex
+      width 100%
+      background #ffffff
+      .person,.child
+        flex 1
+        margin-top 10px
+        margin-bottom: 10px
+        text-align center
+        font-size 15px
+      .person
+        border-right-1px(rgb(0, 0, 0))
+        .icon
+          color: rgb(59, 153, 252)
+      .child
+        color: rgb(210, 210, 210)
+    .person-list
+      width 100%
+      background #ffffff
+      margin-top 15px
+      .person
+        display flex
+        height 35px
+        line-height: 35px
+        font-size 15px
+        border-1px(rgb(230, 230, 230))
+        .select
+          flex 1
+          text-align center
+        .name
+          flex 2
+        .type
+          flex: 2
+        .identity
+          flex: 5
+        .change
+          flex: 1

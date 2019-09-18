@@ -35,6 +35,11 @@ export default new Router({
       path: '/order',
       name: 'order',
       component: () => import('../components/order/Order.vue')
+    },
+    {
+      path: '/passengers',
+      name: 'passengers',
+      component: () => import('../components/passengers/Passengers.vue')
     }
   ]
 })

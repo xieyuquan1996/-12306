@@ -40,8 +40,8 @@
           <span class="type">{{ticketType}}</span>
           <span class="icon" @click="deletePerson(pIndex)"><i class="icon-delete"></i></span>
         </div>
-        <div class="addPerson">
-          <span><i class="icon-increase icon" ></i>选择乘客</span>
+        <div class="addPerson" @click="addPassernger">
+          <span><i class="icon-increase icon"></i>选择乘客</span>
         </div>
       </div>
       <div class="seat-wrapper"></div>
@@ -58,23 +58,7 @@ export default {
     return {
       selectTicketLevel: -1,
       ticketType: '',
-      personLists: [
-        {
-          name: '小王',
-          identity: '1234************567',
-          type: '学生票'
-        },
-        {
-          name: '老张',
-          identity: '1234************567',
-          type: '成人票'
-        },
-        {
-          name: '小红',
-          identity: '1234************567',
-          type: '学生票'
-        }
-      ]
+      personLists: []
     }
   },
   computed: {
@@ -90,9 +74,18 @@ export default {
         break
       }
     }
+    let personList = this.$store.state.personLists
+    for (let i = 0; i < personList.length; i++) {
+      if (personList[i].status) {
+        this.personLists.push(personList[i])
+      }
+    }
   },
   components: {Calendar},
   methods: {
+    addPassernger () {
+      this.$router.push({name: 'passengers'})
+    },
     // 下单
     placingOrder () {
       alert('下单成功！')
