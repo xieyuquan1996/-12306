@@ -69,8 +69,9 @@ export default {
               continue
             }
           }
-          d.tripNum = str[3] // 列车代号号
+          d.remark = str[1] // 12306中的备注信息：预定、12点30分起售或10点起售和 列车运行图调整,暂停发售 等等
           d.trainNo = str[2] // 每天的航班号，不同日期这个航班号不一样
+          d.tripNum = str[3] // 列车代号号
           d.startStation = data.map[str[6]] // 起始站
           d.stopThroughInfo = [] // 经停站信息
           d.startStationTime = str[8] // 起始站出发时间
@@ -107,7 +108,7 @@ export default {
               let ticketTem = {}
               ticketTem.ticketLevel = ticketLevel[jTemp - 21] // 座位的等级名称：一等座，二等座等待
               ticketTem.ticketLevelStatus = ticketLevelStatus[jTemp - 21] // 座位等级的优先级大小
-              if (str[j] !== '有' && str[j] !== '无') {
+              if (str[j] !== '有' && str[j] !== '无' && str[j] !== '*') { // 火车票的数量目前已知四个状态，10，有，无，*。10代表10张。有/无代表火车票有无。*代表还未发售
                 ticketTem.ticketNum = str[j] + '张' // 对应座位的剩余票数
               } else {
                 ticketTem.ticketNum = str[j]

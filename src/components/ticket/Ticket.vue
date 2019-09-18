@@ -9,7 +9,7 @@
     <div class="content-wrapper" ref="contentWrapper">
       <ul>
         <li class="content" v-for="(ticket,index) in tickets" :key="index">
-          <div v-if="ticket.travelTime!=='99小时59分钟'">
+          <div v-if="ticket.remark!==SUSPENDED">
             <div class="content-top">
               <span class="trip-num" @click="placingOrder(ticket,index)">{{ticket.tripNum}}</span>
               <span class="ticket-info-start" @click="placingOrder(ticket,index)">
@@ -42,7 +42,12 @@
               </ul>
             </div>
           </div>
-          <div v-else>
+          <div v-if="ticket.remark!==SUSPENDED&&ticket.remark!==BOOKING">
+            <div class="start-up">
+              <span>{{ticket.remark}}</span>
+            </div>
+          </div>
+          <div v-if="ticket.remark===SUSPENDED" @click="placingOrder(ticket,index)">
             <div class="content-top">
               <span class="trip-num">{{ticket.tripNum}}</span>
               <span class="ticket-info-start">
@@ -62,7 +67,7 @@
             </span>
             </div>
             <div class="content-bottom">
-              <span style="font-size: 12px;color: rgb(255,132,28)">列车运行图调整,暂停发售</span>
+              <span style="font-size: 12px;color: rgb(255,132,28)">{{ticket.remark}}</span>
             </div>
           </div>
           <div v-if="stopThroughInfo[index]" class="stop-through">
@@ -108,6 +113,9 @@ export default {
   components: {Calendar},
   data () {
     return {
+      SUSPENDED: '列车运行图调整,暂停发售',
+      NO_ENOUGH: '无',
+      BOOKING: '预订',
       titles: ['站序', '站名', '到时', '发时', '时长'],
       otherVal: 0, // 就是页脚的四个选项的id值（发时最早，耗时最短）
       moreData: [
@@ -140,7 +148,6 @@ export default {
         }
       ],
       weekList: ['日', '一', '二', '三', '四', '五', '六'],
-      travelTime: this.$store.state.travelDate,
       startPlace: this.$store.state.startPlace,
       endPlace: this.$store.state.endPlace,
       msg: '<>',
@@ -190,19 +197,19 @@ export default {
     },
     // 下单
     placingOrder (val, index) {
-      if (val.travelTime !== '99小时59分钟') {
+      if (val.remark === this.BOOKING) {
         for (let i = 0; i < val.ticket.length; i++) {
-          if (val.ticket[i].ticketNum !== '无') {
+          if (val.ticket[i].ticketNum !== this.NO_ENOUGH) {
             this.$store.commit('setTicketData', val)
             this.showStation(val, index)
             this.$router.push({name: 'order'})
             return
           }
         }
-        alert('该航班车票已售尽！')
+        alert('很抱歉，当日该车次票已售完')
         return
       }
-      alert('由于航班调整，暂停发售！')
+      alert(val.remark)
     },
     showTitle (val) {
       if (val === '始') {

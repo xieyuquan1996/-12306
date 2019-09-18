@@ -19,7 +19,15 @@ export default {
   },
   setTicket (state, ticket) {
     let dataTemp = ticket.concat() // 深拷贝
-    state.ticketData = ticket
+    state.ticketData = ticket.sort(function (a, b) {
+      if (a.startStationTime > b.startStationTime) {
+        return 1
+      }
+      if (a.startStationTime < b.startStationTime) {
+        return -1
+      }
+      return 0
+    })
     state.sortTicket = dataTemp.sort(function (a, b) { // 排序，按历时时间长短排
       if (a.travelTime > b.travelTime) {
         return 1
